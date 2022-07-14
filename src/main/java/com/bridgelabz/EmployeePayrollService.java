@@ -20,7 +20,7 @@ public class EmployeePayrollService {
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
         Scanner scanner = new Scanner(System.in);
         employeePayrollService.readEmployeePayRollData(scanner);
-        employeePayrollService.writeEmployeePayrollDara();
+        employeePayrollService.writeEmployeePayrollData();
     }
 
     public void readEmployeePayRollData(Scanner scanner) {
@@ -34,7 +34,7 @@ public class EmployeePayrollService {
 
     }
 
-    public void writeEmployeePayrollDara() {
+    public void writeEmployeePayrollData() {
         System.out.println("\n writing Employee Payroll Roaster to console \n" + employeePayrollList);
     }
 }
