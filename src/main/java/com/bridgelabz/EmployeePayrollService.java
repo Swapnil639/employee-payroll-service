@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeePayrollService {
-    public enum IOService {
-        CONSOLE_IO, FILE_IO, DB_IO, REST_ID;
+    public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_ID;
     }
     private List<EmployeePayrollData> employeePayrollList;
     public EmployeePayrollService() {
@@ -31,13 +30,13 @@ public class EmployeePayrollService {
             new EmployeePayrollFileIOService().writeData(employeePayrollList);
     }
 
-    private void readEmployeePayrollData(Scanner scanner) {
+    private void readEmployeePayrollData(Scanner consoleInputReader) {
         System.out.println("Enter Employee ID: ");
-        int id = scanner.nextInt();
+        int id = consoleInputReader.nextInt();
         System.out.println("Enter Employee Name: ");
-        String name = scanner.next();
+        String name = consoleInputReader.next();
         System.out.println("Enter Employee Salary: ");
-        double salary = scanner.nextDouble();
+        double salary = consoleInputReader.nextDouble();
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
 
@@ -45,5 +44,10 @@ public class EmployeePayrollService {
         if (ioService.equals(IOService.FILE_IO))
             return new EmployeePayrollFileIOService().countEntries();
         return 0;
+    }
+
+    public void printData(IOService ioService) {
+        if (ioService.equals(IOService.FILE_IO))
+            new EmployeePayrollFileIOService().printData();
     }
 }
