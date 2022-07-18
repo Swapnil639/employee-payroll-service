@@ -6,10 +6,15 @@ import java.util.Scanner;
 
 public class EmployeePayrollService {
     public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_ID;
+
     }
+
     private List<EmployeePayrollData> employeePayrollList;
+
     public EmployeePayrollService() {
+
     }
+
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList) {
         this.employeePayrollList = employeePayrollList;
     }
@@ -18,8 +23,8 @@ public class EmployeePayrollService {
         System.out.println("Welcome to employee payroll program");
         ArrayList<EmployeePayrollData> employeePayrollList = new ArrayList<>();
         EmployeePayrollService employeePayrollService = new EmployeePayrollService(employeePayrollList);
-        Scanner scanner = new Scanner(System.in);
-        employeePayrollService.readEmployeePayrollData(scanner);
+        Scanner consoleInputReader = new Scanner(System.in);
+        employeePayrollService.readEmployeePayrollData(consoleInputReader);
         employeePayrollService.writeEmployeePayrollData(IOService.CONSOLE_IO);
     }
 
